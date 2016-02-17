@@ -7,5 +7,13 @@ function log {
   echo "####################################";
 }
 
+function apt_get_install {
+  package=$1;
+  log "install package = ${package}";
+  sudo apt-get install -y ${package}
+}
+
 log "update apt-get";
 sudo apt-get update;
+
+apt_get_install "htop";
