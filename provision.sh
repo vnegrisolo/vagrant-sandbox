@@ -10,10 +10,11 @@ function log {
 function apt_get_install {
   package=$1;
   log "install package = ${package}";
-  sudo apt-get install -y ${package}
+  sudo apt-get install -y ${package};
 }
 
 log "update apt-get";
 sudo apt-get update;
 
 apt_get_install "htop";
+apt_get_install "git";
