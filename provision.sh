@@ -18,6 +18,12 @@ function apt_get_install {
   sudo apt-get install -y ${package};
 }
 
+function npm_install {
+  package=$1;
+  log "install npm package = ${package}";
+  sudo npm install -g ${package};
+}
+
 function git_clone {
   project=$1;
   folder="projects/${project}";
@@ -29,10 +35,14 @@ function git_clone {
 
 log "update apt-get";
 sudo apt-get update;
+sudo curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
 
 apt_get_install "build-essential";
 apt_get_install "htop";
 apt_get_install "git";
+apt_get_install "nodejs";
+
+npm_install "ember-cli";
 
 if [ ! -f ".ssh/id.rsa" ]; then
   run_as_vagrant "ssh-keygen -f .ssh/id.rsa -t rsa -N '' -C 'vinicius.negrisolo@gmail.com'";
