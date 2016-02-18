@@ -23,17 +23,19 @@ function git_clone {
   folder="projects/${project}";
   run_as_vagrant "mkdir -p ${folder}";
   if [ ! -d "${folder}/.git/" ]; then
-    echo "git clone = ${project}"
     git clone https://github.com/${project}.git ${folder};
-  else
-    echo "git already cloned = ${project}";
   fi
 }
 
 log "update apt-get";
 sudo apt-get update;
 
+apt_get_install "build-essential";
 apt_get_install "htop";
 apt_get_install "git";
+
+if [ ! -f ".ssh/id.rsa" ]; then
+  run_as_vagrant "ssh-keygen -f .ssh/id.rsa -t rsa -N '' -C 'vinicius.negrisolo@gmail.com'";
+fi
 
 git_clone "hashrocket/dotmatrix";
