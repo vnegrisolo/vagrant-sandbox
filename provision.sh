@@ -37,7 +37,7 @@ log "update apt-get";
 sudo apt-get update;
 sudo curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
 
-apt_get_install "build-essential";
+apt_get_install "build-essential zlib1g-dev libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev";
 apt_get_install "htop";
 apt_get_install "git";
 apt_get_install "nodejs";
