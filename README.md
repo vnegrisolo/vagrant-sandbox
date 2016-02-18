@@ -5,6 +5,9 @@
 
 * htop
 * git
+* nodejs
+* npm
+* ember
 
 ## Requirements
 
@@ -51,3 +54,22 @@ the host computer and the virtual machine share a folder by `nfs` (more efficien
 | Port | What is for                                 |
 | :--- | :------------------------------------------ |
 | 3000 | [rails server](http://192.168.33.10:3000)   |
+
+## Install
+
+After run `vagrant up` you should run:
+
+```shell
+# install dotmatrix
+cd projects/hashrocket/dotmatrix; ./bin/install;
+
+# install rbenv
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+cd ~/.rbenv && src/configure && make -C src
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+~/.rbenv/bin/rbenv init
+echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+rbenv install 2.3.0
+echo "2.3.0" > ~/.ruby-version
+```
