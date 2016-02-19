@@ -28,7 +28,7 @@ The install process is taking about: **30 min**
 
 ## Vagrant Commands
 
-```shell
+```bash
 vagrant <command>
 ```
 
@@ -59,7 +59,7 @@ the host computer and the virtual machine share a folder by `nfs` (more efficien
 
 After run `vagrant up` you should run:
 
-```shell
+```bash
 # install dotmatrix
 cd projects/hashrocket/dotmatrix; ./bin/install;
 
